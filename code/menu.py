@@ -20,17 +20,15 @@ class Menu:
         pygame.mixer_music.load('./asset/Menu.mp3')
         pygame.mixer_music.play(-1)
         while True:
+            #desenha o fundo
             self.window.blit(self.surf, self.rect)
-            self.menu_text(text_size=50, text='Mountain', text_color=(255, 126, 0),
-                           text_center_pos=((WIN_WIDTH / 2), 70))
-            self.menu_text(text_size=50, text='Shooter', text_color=(255, 126, 0),
-                           text_center_pos=((WIN_WIDTH / 2), 120))
-            pygame.display.flip()
-
+            #desenha opcoes fixas
+            self.menu_text(text_size=50, text='Mountain', text_color=COLOR_WHITE,text_center_pos=((WIN_WIDTH / 2), 70))
+            self.menu_text(text_size=50, text='Shooter', text_color=COLOR_WHITE,text_center_pos=((WIN_WIDTH / 2), 120))
+            #desenha opcoes dinamicas
             for i in range(len(MENU_OPTION)):
-                self.menu_text(text_size=20, text=MENU_OPTION[i], text_color=COLOR_WHITE,
-                               text_center_pos=((WIN_WIDTH / 2), 200 + 25 * i))
-                pygame.display.flip()
+                self.menu_text(text_size=20,text=MENU_OPTION[i],text_color=COLOR_WHITE,text_center_pos=(WIN_WIDTH / 2, 200 + 25 * i))
+            pygame.display.flip()
 
             # Check for all events
             for event in pygame.event.get():
